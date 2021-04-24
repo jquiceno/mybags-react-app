@@ -1,28 +1,29 @@
-import React from 'react'
-import logo from '../../logo.svg';
-import { Header } from '../../Components'
+import React, { useEffect, useState } from 'react'
+import { Header, PersonCard } from '../../Components'
+import { Container, Row, Col } from 'react-bootstrap';
+import Person from '../../Services/Person'
 
 function Home () {
+  const [persons, setPersons] = useState([]);
+
+  useEffect(() => {
+    Person.getAll()
+      .then(res => {
+        setPersons(res)
+      })
+  }, [])
+  
   return (
-    <div>
+    <>
       <Header />
-      <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-    </div>
+      <Container fluid>
+        <Row>
+          {
+            persons.length && persons.map((person, index) => <Col key={index}><PersonCard person={person}/></Col>)
+          }
+        </Row>
+      </Container>
+    </>
   );
 }
 

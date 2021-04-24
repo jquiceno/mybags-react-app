@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Navbar as BNavbar, Nav } from 'react-bootstrap';
+import { Navbar as BNavbar } from 'react-bootstrap';
 
 export const Navbar = styled(BNavbar)`
   .navbar-nav .nav-link {

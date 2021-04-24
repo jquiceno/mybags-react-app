@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Header, PersonCard, Footer } from '../../Components'
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Person from '../../Services/Person'
-import { Cont, Container } from './Styles'
+import { Cont, Container, Col } from './Styles'
 
 function Home () {
   const [persons, setPersons] = useState([]);
+
+  const handlerChangePerson = async (personId, data = {}) => {
+    Person.update(personId, data)
+  }
 
   useEffect(() => {
     Person.getAll()
@@ -20,8 +24,8 @@ function Home () {
       <Container fluid>
         <Row>
           {
-            persons.length && persons.map((person, index) => <Col lg="4" key={index}>
-              <PersonCard person={person}/>
+            persons.length && persons.map((person, index) => <Col md="3" lg="3" key={index}>
+              <PersonCard person={person} onChangePerson={handlerChangePerson}/>
             </Col>)
           }
         </Row>

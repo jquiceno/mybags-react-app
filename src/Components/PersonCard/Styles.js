@@ -1,13 +1,20 @@
 import styled from 'styled-components'
 import Gravatar from 'react-gravatar'
-import { Button } from 'react-bootstrap';
 
 export const Card = styled.div`
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgb(16 21 24 / 5%);
   text-align: center;
-  overflow: hidden
+  overflow: hidden;
+
+  &:hover button {
+    opacity: 1;
+  }
+
+  &:hover button:disabled {
+    opacity: .65;
+  }
 `
 
 export const CardHeader = styled.header`
@@ -57,7 +64,7 @@ export const CardPersonInfo = styled.section`
   }
 `
 
-export const BagButton = styled(Button)`
+export const BagButton = styled.button`
   border-radius: 50%;
   font-size: 20px;
   font-weight: bold;
@@ -66,6 +73,8 @@ export const BagButton = styled(Button)`
   line-height: 10px;
   background-color: #00D395;
   border: none;
+  opacity: 0;
+  transition: 400ms linear;
 
   &:disabled {
     background-color: #00D395;

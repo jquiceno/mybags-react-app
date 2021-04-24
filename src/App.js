@@ -1,5 +1,5 @@
 import { GlobalStyles } from './GlobalStyles'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home, NewPerson } from './views'
 
 function App() {
@@ -7,8 +7,10 @@ function App() {
     <>
       <GlobalStyles />
       <BrowserRouter>
+      <Switch>
         <Route exact path = "/" component = {Home} />
         <Route path = "/new" component = {NewPerson} />
+      </Switch>
       </BrowserRouter>
     </>
   );

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Header, PersonCard } from '../../Components'
-import { Container, Row, Col } from 'react-bootstrap';
+import { Header, PersonCard, Footer } from '../../Components'
+import { Row, Col } from 'react-bootstrap';
 import Person from '../../Services/Person'
+import { Cont, Container } from './Styles'
 
 function Home () {
   const [persons, setPersons] = useState([]);
@@ -14,16 +15,19 @@ function Home () {
   }, [])
   
   return (
-    <>
+    <Cont>
       <Header />
       <Container fluid>
         <Row>
           {
-            persons.length && persons.map((person, index) => <Col key={index}><PersonCard person={person}/></Col>)
+            persons.length && persons.map((person, index) => <Col lg="4" key={index}>
+              <PersonCard person={person}/>
+            </Col>)
           }
         </Row>
       </Container>
-    </>
+      <Footer />
+    </Cont>
   );
 }
 

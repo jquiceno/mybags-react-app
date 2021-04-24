@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #fefefefe;
+    background-color: #F9FAFB;
     min-height: 100vh;
     overscroll-behavior: none;
     width: 100%;

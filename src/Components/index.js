@@ -1,5 +1,9 @@
-import header from './Header'
-import personCard from './PersonCard'
+import Header from './Header'
+import PersonCard from './PersonCard'
+import Footer from './Footer'
 
-export const Header = header
-export const PersonCard = personCard
+export {
+  Header,
+  PersonCard,
+  Footer
+}

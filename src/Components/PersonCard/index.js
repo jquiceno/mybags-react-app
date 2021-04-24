@@ -1,8 +1,9 @@
 import React from 'react'
+import { Card } from './Styles'
 
 const PersonCard = ({ person }) => {
   return (
-    <div>
+    <Card>
       { person && <ul>
         <li>Name: {person.name || ''}</li>
         <li>Last Name: {person.lastName || ''}</li>
@@ -12,7 +13,7 @@ const PersonCard = ({ person }) => {
         <li>Bags: {person.bags || ''}</li>
         </ul>
       }
-    </div>
+    </Card>
   )
 }
 

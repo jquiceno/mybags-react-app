@@ -71,27 +71,24 @@ export const BagButton = styled.button`
   width: 40px;
   height: 40px;
   line-height: 10px;
-  background-color: #00D395;
-  border: none;
+  background-color: transparent;
+  border: 1px solid #00D395;
+  color: #00D395;
   opacity: 0;
   transition: 400ms linear;
 
   &:disabled {
-    background-color: #00D395;
-    border: none;
     box-shadow: none;
   }
 
   &:focus {
-    background-color: #00D395;
-    border: none;
     box-shadow: none;
   }
 
   &:hover,
   &:not(:disabled):not(.disabled):active:focus,
   &:not(:disabled):not(.disabled):active {
-    background-color: white;
+    background-color: #00D395;
     color: black;
     border: none;
     box-shadow: none;

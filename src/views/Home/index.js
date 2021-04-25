@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Header, PersonCard, Footer } from '../../Components'
-import { Row } from 'react-bootstrap';
+import { Row, Modal, Button } from 'react-bootstrap';
 import Person from '../../Services/Person'
-import { Cont, Container, Col } from './Styles'
+import { Container, Col, NewUserButton } from './Styles'
 
-function Home () {
+function Home ({ showNewUser = false }) {
   const [persons, setPersons] = useState([]);
+  const [show, setShow] = useState(showNewUser);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handlerChangePerson = async (personId, data = {}) => {
     Person.update(personId, data)
@@ -19,7 +23,7 @@ function Home () {
   }, [])
   
   return (
-    <Cont>
+    <>
       <Header />
       <Container fluid>
         <Row>
@@ -31,7 +35,22 @@ function Home () {
         </Row>
       </Container>
       <Footer />
-    </Cont>
+      <NewUserButton onClick={handleShow}> + </NewUserButton>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add new User</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 

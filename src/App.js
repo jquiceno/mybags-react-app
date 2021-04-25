@@ -1,6 +1,6 @@
 import { GlobalStyles } from './GlobalStyles'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Home, NewPerson } from './views'
+import { Home } from './views'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
       <Switch>
         <Route exact path = "/" component = {Home} />
-        <Route path = "/new" component = {NewPerson} />
+        <Route path = "/new" component = {() => <Home showNewUser />} />
       </Switch>
       </BrowserRouter>
     </>

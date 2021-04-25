@@ -1,5 +1,5 @@
-import home from './Home'
-import newPerson from './NewPerson'
+import Home from './Home'
 
-export const Home = home
-export const NewPerson = newPerson
+export {
+  Home
+}

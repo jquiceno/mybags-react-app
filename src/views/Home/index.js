@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Header, PersonCard, Footer } from '../../Components'
 import { Row, Modal, Button } from 'react-bootstrap';
-import Person from '../../Services/Person'
+import User from '../../Services/User'
 import { Container, Col, NewUserButton } from './Styles'
 
 function Home ({ showNewUser = false }) {
@@ -12,11 +12,11 @@ function Home ({ showNewUser = false }) {
   const handleShow = () => setShow(true);
 
   const handlerChangePerson = async (personId, data = {}) => {
-    Person.update(personId, data)
+    User.update(personId, data)
   }
 
   useEffect(() => {
-    Person.getAll()
+    User.getAll()
       .then(res => {
         setPersons(res)
       })
